@@ -1,0 +1,19 @@
+namespace FCamara.Commission.Application.Sales.Commission;
+
+public class FCamaraCalculator : ICommissionCalculator
+{
+    private const decimal LocalRate = 0.20m;
+    private const decimal ForeignRate = 0.35m;
+
+    public decimal CalculateTotalCommission(CommissionCalculationRequest request)
+    {
+        return CalculateLocalCommission(request.LocalSalesCount, request.AverageSaleAmount) +
+               CalculateForeignCommission(request.ForeignSalesCount, request.AverageSaleAmount);
+    }
+    
+    private decimal CalculateLocalCommission(int localSales, decimal averageSaleAmount)
+        => LocalRate * localSales * averageSaleAmount;
+
+    private decimal CalculateForeignCommission(int foreignSales, decimal averageSaleAmount)
+        => ForeignRate * foreignSales * averageSaleAmount;
+}

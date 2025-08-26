@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{1C2AC807-2C7D-4D95-9390-C4BFB9AC40CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4D5E2F83-BDF7-42A3-A8B7-B42CE2D5356B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FCamara.Commission.Api", "FCamara.Commission.Api\FCamara.Commission.Api.csproj", "{CDEF1BB5-C84F-49FD-9612-962EA19CC229}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FCamara.CommissionApi.Tests", "FCamara.CommissionApi.Tests\FCamara.CommissionApi.Tests.csproj", "{6CBDE849-034F-46BB-98CA-85FD669E7100}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FCamara.Commission.Application", "FCamara.Commission.Application\FCamara.Commission.Application.csproj", "{49D9DFA8-FF8C-4A2A-97CC-88F3FEF63154}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDEF1BB5-C84F-49FD-9612-962EA19CC229}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDEF1BB5-C84F-49FD-9612-962EA19CC229}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDEF1BB5-C84F-49FD-9612-962EA19CC229}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDEF1BB5-C84F-49FD-9612-962EA19CC229}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CBDE849-034F-46BB-98CA-85FD669E7100}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CBDE849-034F-46BB-98CA-85FD669E7100}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CBDE849-034F-46BB-98CA-85FD669E7100}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CBDE849-034F-46BB-98CA-85FD669E7100}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49D9DFA8-FF8C-4A2A-97CC-88F3FEF63154}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49D9DFA8-FF8C-4A2A-97CC-88F3FEF63154}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49D9DFA8-FF8C-4A2A-97CC-88F3FEF63154}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49D9DFA8-FF8C-4A2A-97CC-88F3FEF63154}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {56F4E882-2F59-4F44-A586-4AA337BB64CC}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CDEF1BB5-C84F-49FD-9612-962EA19CC229} = {1C2AC807-2C7D-4D95-9390-C4BFB9AC40CA}
+		{6CBDE849-034F-46BB-98CA-85FD669E7100} = {4D5E2F83-BDF7-42A3-A8B7-B42CE2D5356B}
+		{49D9DFA8-FF8C-4A2A-97CC-88F3FEF63154} = {1C2AC807-2C7D-4D95-9390-C4BFB9AC40CA}
+	EndGlobalSection
+EndGlobal
