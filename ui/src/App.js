@@ -1,7 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
-import './App.css';
 
 function App() {
   const [localSalesCount, setLocalSalesCount] = useState(0);
@@ -26,9 +25,24 @@ function App() {
         })
       });
 
+      const contentType = response.headers.get('content-type');
+
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.title || 'Calculation failed');
+        if (response.status === 400 && contentType?.includes('application/problem+json')) {
+          const problem = await response.json();
+          const validationMessages = Object.entries(problem.errors)
+            .map(([field, messages]) => `${field}: ${messages.join(', ')}`)
+            .join('\n');
+
+          setError(validationMessages);
+        } else {
+          const errorData = await response.json();
+          setError(errorData.title || 'Calculation failed');
+        }
+
+        setFcamaraCommission(null);
+        setCompetitorCommission(null);
+        return;
       }
 
       const data = await response.json();
@@ -37,7 +51,9 @@ function App() {
       setCompetitorCommission(data.competitorCommissionAmount);
       setError(null);
     } catch (err) {
-      setError(err.message);
+      setError('Failed to connect to the backend.');
+      setFcamaraCommission(null);
+      setCompetitorCommission(null);
     }
   }
 
@@ -76,7 +92,11 @@ function App() {
 
       <div>
         <h3>Results</h3>
-        {error && <p style={{ color: 'red' }}>Error: {error}</p>}
+        {error && (
+          <p style={{ color: 'red', whiteSpace: 'pre-wrap' }}>
+            Error: {error}
+          </p>
+        )}
         {fcamaraCommission !== null && (
           <>
             <p>Total FCamara commission: {fcamaraCommission}</p>
