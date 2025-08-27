@@ -15,7 +15,6 @@ function App() {
     e.preventDefault(); // prevent page reload
     const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
     try {
-      
       const response = await fetch(`${apiBaseUrl}/api/v1/commission`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
