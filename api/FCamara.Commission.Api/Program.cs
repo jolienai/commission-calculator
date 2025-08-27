@@ -9,6 +9,17 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+        var allowedOrigins = builder.Configuration.GetSection("AllowedCorsOrigins").Get<string[]>()??[];
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("AllowFrontend", policy =>
+            {
+                policy.WithOrigins(allowedOrigins) // React dev server
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            });
+        });
+        
         builder.Services.AddControllers();
         builder.Services.AddApiVersioning();
         
@@ -18,6 +29,7 @@ public class Program
         builder.Services.AddApplication();
 
         var app = builder.Build();
+        app.UseCors("AllowFrontend");
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
